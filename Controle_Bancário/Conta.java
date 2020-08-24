@@ -24,11 +24,11 @@ public class Conta extends Cliente{
 	@Override
 	public String toString() {
 		return "Conta [Nome :" + nome + 
-				", E-mail :" + e_mail + 
-				", Telefone :" + telefone + 
-				", Codigo : " + codigo + 
-				", Saldo Inicial : R$" + saldo_inicial + 
-				", Numero da conta :" + numero + "]";
+				" \nE-mail :" + e_mail + 
+				" \nTelefone :" + telefone + 
+				" \nCodigo : " + codigo + 
+				" \nSaldo : R$" + saldo_inicial + 
+				" \nNumero da conta :" + numero + "]";
 	}
 	
 	

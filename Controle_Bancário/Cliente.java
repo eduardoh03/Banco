@@ -48,10 +48,10 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Nome : " + nome + ", "
-				+ "E-mail : " + e_mail + ", "
-				+ "Telefone : " + telefone + ", "
-				+ "Codigo Bancario : " + codigo + "";
+		return "Cliente [Nome : " + nome 
+				+ "\nE-mail : " + e_mail 
+				+ "\nTelefone : " + telefone 
+				+ "\nCodigo Bancario : " + codigo + "]";
 	}
 
 }

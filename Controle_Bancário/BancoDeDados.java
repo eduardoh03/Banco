@@ -40,13 +40,15 @@ public class BancoDeDados {
 		}
 		return null;
 	}
-	public void cadastrar(Double saldo_inicial, int numero) {
-		
-		
-	}
-	/**
-	 * @return the clienteBd
-	 */
+	Conta buscarCon(int verfinum) {
+		for (Conta client : getContaBd()) {
+			if (client.getNumero() == verfinum) {
+				return client;
+			}
+		}
+		return null;
+	}	
+	
 	public List<Cliente> getClienteBd() {
 		return clienteBd;
 	}

@@ -10,6 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		boolean a = true;
+		int verifcod;
 		do {
 			mn.Menu_inicial();
 			int escolha = sc.nextInt();
@@ -27,11 +28,11 @@ public class Main {
 				break;
 
 			case 3:// Abrir conta
-				System.out.println("INFORME O CODIGO BANCARIO :");
-				int verifcod = sc.nextInt();
+				System.out.println("INFORME O CODIGO BANCARIO:");
+				verifcod = sc.nextInt();
 
-				buscarConta(verifcod);//verifica se o codigo informado está dentro da lista
-				if (buscarConta(verifcod) == true) {
+				buscarCliente(verifcod);//verifica se o codigo informado está dentro da lista
+				if (buscarCliente(verifcod) == true) {
 					Conta novaCont = criarConta(verifcod);					
 					cont.adicionarConta(novaCont);
 				} else {
@@ -41,10 +42,30 @@ public class Main {
 				break;
 
 			case 4:// Efetuar depósito
-
+				System.out.println("INFORME O NUMERO DA CONTA: ");
+				int verfinum = sc.nextInt();
+				
+				buscarConta(verfinum);
+				if (buscarConta(verfinum) == true) {
+					System.out.println("INFORME O VALOR A SER DEPOSITADO: ");
+					Double deposito = sc.nextDouble();
+					depositar(deposito);
+				}else {
+					System.out.println("NUMERO INVALIDO");
+				}
 				break;
 
 			case 5:// Efetuar saque
+				System.out.println("INFORME O NUMERO DA CONTA: ");
+				verfinum = sc.nextInt();
+				
+				buscarConta(verfinum);
+				if (buscarConta(verfinum) == true) {
+					System.out.println("INFORME O VALOR A SER SACADO: ");
+					
+				}else {
+					System.out.println("NUMERO INVALIDO");
+				}
 				break;
 
 			case 6:// Relatório de contas
@@ -84,8 +105,7 @@ public class Main {
 
 		return new Cliente(nome, e_mail, telefone, codigo);
 	}
-
-	private static boolean buscarConta(int verifcod) {
+	private static boolean buscarCliente(int verifcod) {
 		Cliente cliente = cont.buscar(verifcod);
 
 		if (cliente != null) {
@@ -94,7 +114,15 @@ public class Main {
 			return false;
 		}
 	}
-	
+	private static boolean buscarConta(int verfinum) {
+		Conta contra = cont.buscarCon(verfinum);
+		
+		if (contra != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	private static Conta criarConta(int verifcod) {
 		Cliente usuario = cont.buscar(verifcod);
 				
@@ -111,15 +139,9 @@ public class Main {
 				saldo_inicial, 
 				numeroConta);
 	}
-	/*
-	 * private static Conta criarConta(int verifcod) { Cadastro cliente =
-	 * cont.buscar(verifcod);
-	 * 
-	 * System.out.println("INFORME O SALDO INICIAL: "); Double saldo_inicial =
-	 * sc.nextDouble();
-	 * 
-	 * if(saldo_inicial >= 0 || saldo_inicial <=0) { return new
-	 * Conta(cliente.getNome(), cliente.getE_mail(), cliente.getTelefone(),
-	 * cliente.getCodigo(), saldo_inicial); } return null; }
-	 */
+	private static Conta depositar(Double deposito) {
+		
+		return null;
+		
+	}
 }
