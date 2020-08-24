@@ -8,28 +8,32 @@ public class BancoDeDados {
 	
 	private List<Cliente> clienteBd = new ArrayList<>();
 	private List<Conta> contaBd = new ArrayList<>();
-	//buscar codigo na lista
-	void procurar() {
-		for (int i = 0; i < clienteBd.size(); i++) {
-			verifcod = clienteBd.indexOf(verifcod);
-		}
-	}
+	
 	// adicionar cliente
 	void adicionar(Cliente conta) {
-		clienteBd.add(conta);
+		getClienteBd().add(conta);
 	}
-
+	// adicionar conta
+	void adicionarConta(Conta conta2) {
+		getContaBd().add(conta2);
+	}
 	// mostrar contatos.
 	void mostrarClientes() {
-		for (Cliente cadastro : clienteBd) {
-			System.out.println("\n[" + clienteBd.indexOf(cadastro) + "]");
+		for (Cliente cadastro : getClienteBd()) {
+			System.out.println("\n[" + getClienteBd().indexOf(cadastro) + "]");
 			System.out.println(cadastro);
+		}
+	}
+	void mostrarContas() {
+		for (Conta cont : getContaBd()) {
+			System.out.println("\n[" + getContaBd().indexOf(cont) + "]");
+			System.out.println(cont);
 		}
 	}
 
 	// verificar codigo.
 	Cliente buscar(int verifcod) {
-		for (Cliente cadastro : clienteBd) {
+		for (Cliente cadastro : getClienteBd()) {
 			if (cadastro.getCodigo() == verifcod) {
 				return cadastro;
 			}
@@ -39,6 +43,24 @@ public class BancoDeDados {
 	public void cadastrar(Double saldo_inicial, int numero) {
 		
 		
+	}
+	/**
+	 * @return the clienteBd
+	 */
+	public List<Cliente> getClienteBd() {
+		return clienteBd;
+	}
+	public List<Conta> getContaBd() {
+		return contaBd;
+	}
+	public void setContaBd(List<Conta> contaBd) {
+		this.contaBd = contaBd;
+	}
+	/**
+	 * @param clienteBd the clienteBd to set
+	 */
+	public void setClienteBd(List<Cliente> clienteBd) {
+		this.clienteBd = clienteBd;
 	}
 	
 

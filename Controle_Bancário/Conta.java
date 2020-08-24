@@ -26,8 +26,8 @@ public class Conta extends Cliente{
 		return "Conta [Nome :" + nome + 
 				", E-mail :" + e_mail + 
 				", Telefone :" + telefone + 
-				", Codigo=" + codigo
-				+ ", Saldo Inicial=" + saldo_inicial + 
+				", Codigo : " + codigo + 
+				", Saldo Inicial : R$" + saldo_inicial + 
 				", Numero da conta :" + numero + "]";
 	}
 	

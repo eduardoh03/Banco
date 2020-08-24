@@ -23,17 +23,17 @@ public class Main {
 
 			case 2:// listar contas
 				cont.mostrarClientes();
+				System.out.println();
 				break;
 
 			case 3:// Abrir conta
-				System.out.println("INFORME O CODIGO DO CLIENTE:");
+				System.out.println("INFORME O CODIGO BANCARIO :");
 				int verifcod = sc.nextInt();
 
 				buscarConta(verifcod);//verifica se o codigo informado está dentro da lista
 				if (buscarConta(verifcod) == true) {
-					criarConta(verifcod);
-					
-
+					Conta novaCont = criarConta(verifcod);					
+					cont.adicionarConta(novaCont);
 				} else {
 					System.out.println("CODIGO INVALIDO");
 				}
@@ -45,10 +45,11 @@ public class Main {
 				break;
 
 			case 5:// Efetuar saque
-
 				break;
 
 			case 6:// Relatório de contas
+				cont.mostrarContas();
+				System.out.println();
 				break;
 
 			case 7:// Encerrar o programa
@@ -95,19 +96,20 @@ public class Main {
 	}
 	
 	private static Conta criarConta(int verifcod) {
-		Conta usuario = (Conta) cont.buscar(verifcod);
-		
-		System.out.println("INFORME UM NUMERO PARA CONTA:");
-		int numero = sc.nextInt();
-		
+		Cliente usuario = cont.buscar(verifcod);
+				
 		System.out.println("INFORME O SALDO INICIAL");
 		Double saldo_inicial = sc.nextDouble();
 		
-		return (Conta) new Cliente(usuario.getNome(),
+		System.out.println("INFORME UM NUMERO PARA CONTA:");
+		int numeroConta = sc.nextInt();
+		
+		return new Conta(usuario.getNome(),
 				usuario.getE_mail(),
 				usuario.getTelefone(),
-				usuario.getCodigo()
-				);
+				usuario.getCodigo(), 
+				saldo_inicial, 
+				numeroConta);
 	}
 	/*
 	 * private static Conta criarConta(int verifcod) { Cadastro cliente =
