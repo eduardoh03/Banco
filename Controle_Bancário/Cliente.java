@@ -1,10 +1,10 @@
 package Controle_Bancário;
 
 public class Cliente {
-	String nome;
-	String e_mail;
-	String telefone;
-	int codigo;
+	private String nome;
+	private String e_mail;
+	private String telefone;
+	private int codigo;
 
 
 	public Cliente(String nome, String e_mail, String telefone, int codigo) {
