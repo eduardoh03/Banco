@@ -24,6 +24,7 @@ public class BancoDeDados {
 			System.out.println(cadastro);
 		}
 	}
+	//mostrar contas cadastradas
 	void mostrarContas() {
 		for (Conta cont : getContaBd()) {
 			System.out.println("\n[" + getContaBd().indexOf(cont) + "]");
@@ -39,7 +40,7 @@ public class BancoDeDados {
 			}
 		}
 		return null;
-	}
+	}//verifica conta
 	Conta buscarCon(int verfinum) {
 		for (Conta client : getContaBd()) {
 			if (client.getNumero() == verfinum) {
